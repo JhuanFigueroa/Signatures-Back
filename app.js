@@ -9,6 +9,7 @@ const btnEnviar = document.querySelector("#btn-enviar");
 const btnComparar = document.querySelector("#btn-comparar");
 const formulario = document.querySelector(".formulario");
 const firma = document.getElementById("firma-input");
+const firmaCom = document.getElementById("firma-input-comp");
 const comparaFirma = document.querySelector(".comparar-firma");
 const msgCoincide=document.querySelector('.msg-coincide')
 const msgNoCoincide=document.querySelector('.msg-noCoincide')
@@ -105,13 +106,14 @@ const enviarImagen = async () => {
   fd.append("nombre", nombre);
   fd.append("apellido", apellido);
   fd.append("email", email);
-  fd.append("firma", firma.files[0]);
+  fd.append("firma",firma.files[0]);
   console.log(firma.files[0]);
 
   const rta = axios
     .post("https://firmaflask1.herokuapp.com/api/users/create", fd)
     .then((res) => {
       idUser = res.data.id;
+      console.log(res.data.id);
     });
 
   comparar = true;
@@ -123,7 +125,7 @@ const enviarImagen = async () => {
 const compararImagen = () => {
   const fd = new FormData();
   fd.append("user", idUser);
-  fd.append("firma", firma.files[0]);
+  fd.append("firma", firmaCom.files[0]);
   const rta = axios({
     method: "post",
     headers: {
