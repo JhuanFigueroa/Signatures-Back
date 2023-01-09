@@ -109,7 +109,7 @@ const enviarImagen = async () => {
   console.log(firma.files[0]);
 
   const rta = axios
-    .post("http://127.0.0.1:8000/api/users/create", fd)
+    .post("https://firmaflask1.herokuapp.com/api/users/create", fd)
     .then((res) => {
       idUser = res.data.id;
     });
@@ -129,7 +129,7 @@ const compararImagen = () => {
     headers: {
       "Content-Type": "multipart/form-data",
     },
-    url: "http://127.0.0.1:8000/file",
+    url: "https://firmaflask1.herokuapp.com/file",
     data: fd,
   }).then((res) => {
     console.log(res.data);
