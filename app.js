@@ -6,6 +6,7 @@ const context2=canvasComparar.getContext('2d');
 const btnGuardar = document.querySelector(".btn-send");
 const btnGuardarComp = document.querySelector(".btn-send-comparar");
 const btnEnviar = document.querySelector("#btn-enviar");
+//
 const btnComparar = document.querySelector("#btn-comparar");
 const formulario = document.querySelector(".formulario");
 const firma = document.getElementById("firma-input");
